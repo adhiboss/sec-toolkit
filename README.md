@@ -10,6 +10,8 @@ Offensive and defensive security scripts for Linux.
 
 ## Tools
 
+## Tools
+
 | Script | What it does |
 |---|---|
 | `scripts/port_scanner.py` | Scan open ports on a target |
@@ -19,7 +21,8 @@ Offensive and defensive security scripts for Linux.
 | `scripts/dir_bruteforce.py` | Brute force web directories |
 | `scripts/subdomain_scanner.py` | Discover subdomains of a domain |
 | `scripts/banner_grabber.py` | Grab service banners from ports |
-## Stack
+| `scripts/wifi_scanner.py` | Scan nearby WiFi networks |
+| `scripts/arp_spoof_detector.py` | Detect ARP spoofing attacks |## Stack
 Python · Linux · Networking · Sockets
 
 ## ⚠️ Disclaimer
