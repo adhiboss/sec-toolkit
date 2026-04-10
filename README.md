@@ -22,7 +22,8 @@ Offensive and defensive security scripts for Linux.
 | `scripts/subdomain_scanner.py` | Discover subdomains of a domain |
 | `scripts/banner_grabber.py` | Grab service banners from ports |
 | `scripts/wifi_scanner.py` | Scan nearby WiFi networks |
-| `scripts/arp_spoof_detector.py` | Detect ARP spoofing attacks |## Stack
+| `scripts/log_analyzer.py` | Analyze system logs for suspicious activity |
+| `scripts/vulnerability_scanner.py` | Basic vulnerability checks on a target host || `scripts/arp_spoof_detector.py` | Detect ARP spoofing attacks |## Stack
 Python · Linux · Networking · Sockets
 
 ## ⚠️ Disclaimer
