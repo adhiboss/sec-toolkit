@@ -4,13 +4,6 @@ Offensive and defensive security scripts for Linux.
 
 ## Tools
 
-## Tools
-
-## Tools
-
-## Tools
-
-## Tools
 
 | Script | What it does |
 |---|---|
