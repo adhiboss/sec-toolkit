@@ -20,29 +20,13 @@ def scan(target, start_port, end_port):
             s.settimeout(0.5)
             result = s.connect_ex((target, port))
             if result == 0:
-                try:
-                    service = socket.getservbyport(port)
-                except:
-                    service = "unknown"
-                print(f"  \033[92m[OPEN]\033[0m Port {port:>5} — {service}")
+                print(f"  \033[92m[OPEN]\033[0m Port {port}")
                 open_ports.append(port)
             s.close()
         except KeyboardInterrupt:
-            print("\n  Scan cancelled.")
+            print("\nScan cancelled.")
             sys.exit()
         except:
             pass
 
-    print(f"\n  Total open ports: {len(open_ports)}")
-    print(f"{'='*50}\n")
-
-if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python3 port_scanner.py <target> <start_port> <end_port>")
-        print("Example: python3 port_scanner.py 127.0.0.1 1 1024")
-        sys.exit()
-
-    target = sys.argv[1]
-    start = int(sys.argv[2])
-    end = int(sys.argv[3])
-    scan(target, start, end)
+    print(f"\nTotal open ports: {len(open_ports)}")
