@@ -1,13 +1,39 @@
+#!/usr/bin/env python3
+
 import argparse
-from scripts import port_scanner
+from scripts import port_scanner, network_scanner
 
-parser = argparse.ArgumentParser(description="Security Toolkit CLI")
+def banner():
+    print("\033[91m")
+    print("  ███████╗███████╗ ██████╗ ")
+    print("  ██╔════╝██╔════╝██╔═══██╗")
+    print("  ███████╗█████╗  ██║   ██║")
+    print("  ╚════██║██╔══╝  ██║   ██║")
+    print("  ███████║███████╗╚██████╔╝")
+    print("  ╚══════╝╚══════╝ ╚═════╝ ")
+    print("\033[0m")
 
-parser.add_argument("--port-scan", help="Target IP")
-parser.add_argument("--start-port", type=int, default=1)
-parser.add_argument("--end-port", type=int, default=100)
+parser = argparse.ArgumentParser(prog="sec-toolkit", description="Security Toolkit CLI")
+subparsers = parser.add_subparsers(dest="command")
+
+# scan-port command
+port_parser = subparsers.add_parser("scan-port")
+port_parser.add_argument("target")
+port_parser.add_argument("--start", type=int, default=1)
+port_parser.add_argument("--end", type=int, default=100)
+
+# scan-network command
+network_parser = subparsers.add_parser("scan-network")
 
 args = parser.parse_args()
 
-if args.port_scan:
-    port_scanner.scan(args.port_scan, args.start_port, args.end_port)
+banner()
+
+if args.command == "scan-port":
+    port_scanner.scan(args.target, args.start, args.end)
+
+elif args.command == "scan-network":
+    network_scanner.scan_network()
+
+else:
+    parser.print_help()
