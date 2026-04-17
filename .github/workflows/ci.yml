@@ -1,0 +1,30 @@
+name: Security Toolkit CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-tools:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Run Port Scanner (test)
+      run: python scripts/port_scanner.py 127.0.0.1 || true
+
+    - name: Run Network Scanner
+      run: python scripts/network_scanner.py || true
+
+    - name: Run Log Analyzer
+      run: python scripts/log_analyzer.py || true
+
+    - name: Run Vulnerability Scanner
+      run: python scripts/vulnerability_scanner.py || true
